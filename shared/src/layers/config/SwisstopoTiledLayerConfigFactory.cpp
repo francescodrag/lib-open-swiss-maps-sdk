@@ -156,7 +156,7 @@ SwisstopoTiledLayerConfigFactory::createRasterTileLayerConfig(SwisstopoLayerType
                                               "/default/{Time}/2056/{TileMatrix}/{TileCol}/{TileRow}." + extension, "image/"+extension);
 
 
-    auto zoomInfo = Tiled2dMapZoomInfo(1.25, numDrawPreviousLayers);
+    auto zoomInfo = Tiled2dMapZoomInfo(2.25, numDrawPreviousLayers);
 
 
     return createRasterTiledLayerConfigFromMetadata(configuration, maxZoom, zoomInfo);
@@ -169,5 +169,5 @@ std::shared_ptr<::Tiled2dMapLayerConfig> SwisstopoTiledLayerConfigFactory::creat
                                                       zoomLevels.begin() + (std::min(zoomLevels.size(), (size_t)maxZoom))};
     zoomLevels = subvector;
 
-    return WmtsTiled2dMapLayerConfigFactory::create(description, zoomLevels, zoomInfo, SwisstopoTiledLayerConfigHelper::getBounds().topLeft.systemIdentifier);
+    return WmtsTiled2dMapLayerConfigFactory::create(description, zoomLevels, zoomInfo, SwisstopoTiledLayerConfigHelper::getBounds().topLeft.systemIdentifier, "");
 }
